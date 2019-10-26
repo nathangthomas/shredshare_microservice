@@ -13,7 +13,7 @@ get '/' do
 #Will add more cities from Douglas, Arapahoe, Adams, Broomfield and Boulder counties.
 cities = ['Denver,CO', 'Lakewood,CO', 'arvada,CO', 'Arvada,CO', 'westminster,CO', 'wheat ridge,CO', 'Golden,CO', 'edgewater,CO', 'mountain view,CO', 'bow mar,CO', 'littleton,CO', 'superior,CO', 'lakeside,CO']
 #Geocode endpoint returns coordinates for a given city
-x = cities.map do |city|
+cities.map do |city|
   geocode_endpoint = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDxsdzwJ2jFqPRbyi8Q434HKAURziPojVc&address=#{city}"
 
   geocode_uri = URI.parse(URI.encode(geocode_endpoint))
@@ -38,7 +38,7 @@ x = cities.map do |city|
 
     #passing place_ids into Place Details endpoint to obtain complete addresses and names for nearby RTD stations.
 
-    y = rtd_place_ids.map do |place|
+    rtd_place_ids.map do |place|
       place_details_endpoint = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDxsdzwJ2jFqPRbyi8Q434HKAURziPojVc&placeid=#{place.place_id}"
 
       place_details_uri = URI.parse(URI.encode(place_details_endpoint))
@@ -48,8 +48,5 @@ x = cities.map do |city|
       address = parsed_location_details[:result][:formatted_address]
       RtdPlaceDetail.new(name, address)
     end
-    # binding.pry
   end
-  p x
-  binding.pry
 end
