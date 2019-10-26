@@ -7,10 +7,6 @@ require './app/lib/rtd_station'
 require './app/lib/rtd_place_detail'
 require './app/lib/coordinates'
 
-# get'/' do
-#   'This is a microservice app providing pickup and drop off locaitons for the ShredShare rideshare app.'
-# end
-
 get '/' do
 #to make operation dynamic, need the following:
 # 1. array of hashes of lat/lng
@@ -25,10 +21,6 @@ geocode_parsed_coords = JSON.parse(geocode_api_response, symbolize_names: true)[
 
 latitude = geocode_parsed_coords[:lat]
 longitude = geocode_parsed_coords[:lng]
-
-# y = Coordinates.new(latitude, longitude)
-# x = y.formatted_coords
-# binding.pry
 
 #nearbysearch endpoint for place_ids. this will be used to obtain place details from a separate API call.
 #hard coded API key, radius and location (Lone Tree)
@@ -49,7 +41,7 @@ longitude = geocode_parsed_coords[:lng]
   #passing place_ids into Place Details endpoint to obtain complete addresses for nearby RTD stations.
   #hard coding for now: api key, location, etc.
   #place_id = ChIJb-T0ZwuFbIcRgmXrh3VSFpI
-  x = rtd_place_ids.map do |place|
+  rtd_place_ids.map do |place|
     place_details_endpoint = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDxsdzwJ2jFqPRbyi8Q434HKAURziPojVc&placeid=#{place.place_id}"
 
     place_details_uri = URI.parse(URI.encode(place_details_endpoint))
@@ -58,7 +50,6 @@ longitude = geocode_parsed_coords[:lng]
     name = parsed_location_details[:result][:name]
     address = parsed_location_details[:result][:formatted_address]
     RtdPlaceDetail.new(name, address)
-  binding.pry
   end
 end
 
