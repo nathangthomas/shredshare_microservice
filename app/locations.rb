@@ -24,7 +24,6 @@ cities.map do |city|
   longitude = geocode_parsed_coords[:lng]
 
   #nearbysearch endpoint below to obtain place_ids. this will be used to obtain place details from a separate API call, also below.
-
     nearbysearch_endpoint = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDxsdzwJ2jFqPRbyi8Q434HKAURziPojVc&radius=8046&keyword=Park-N-Ride&location=#{latitude}, #{longitude}"
 #Note: Park-N-Ride only returns limited RTD locations.  Need to include search for PnR as well due to RTD's poor data formatting.
     uri = URI.parse(URI.encode(nearbysearch_endpoint))
@@ -37,7 +36,6 @@ cities.map do |city|
     end
 
     #passing place_ids into Place Details endpoint to obtain complete addresses and names for nearby RTD stations.
-
     rtd_place_ids.map do |place|
       place_details_endpoint = "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyDxsdzwJ2jFqPRbyi8Q434HKAURziPojVc&placeid=#{place.place_id}"
 
