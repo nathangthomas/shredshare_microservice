@@ -1,2 +1,2 @@
-require 'locations_microservice'
+require './server.rb'
 run Sinatra::Application
