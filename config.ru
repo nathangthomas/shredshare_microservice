@@ -1,2 +1,2 @@
-require './app/locations'
+require '/locations'
 run Sinatra::Application
