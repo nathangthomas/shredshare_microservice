@@ -1,6 +1,6 @@
 require 'pry'
 
-class RtdPlaceDetail
+class RtdLocation
 
   attr_reader :name, :address
   def initialize(name, address)
