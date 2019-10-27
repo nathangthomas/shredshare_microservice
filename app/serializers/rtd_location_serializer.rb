@@ -1,7 +1,11 @@
-class RtdLocationSerializer 
+class RtdLocationSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :name, :address
 
-  def
+  def location_serializer
+    RtdLocation.new()
 
+    
   end
 
 end
