@@ -11,6 +11,10 @@ require './app/lib/rtd_location'
 require 'rubygems'
 require 'bundler'
 
+  get'/' do
+    'This is a microservice application exposing custom APIs for the ShredShare ride share application that can be visitied at shred-share.herokuapp.com'
+
+  end
 
   get '/rtd_locations/index' do
   #to make operation dynamic, need the following:
