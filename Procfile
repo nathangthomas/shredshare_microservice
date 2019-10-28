@@ -1,1 +1,1 @@
-web: rackup cocations.ru -p $PORT
+web: rackup locations.ru -p $PORT
