@@ -1,1 +1,1 @@
-web: bundle exec ruby locations.rb -p $PORT
+web: ruby locations.rb -p $PORT
