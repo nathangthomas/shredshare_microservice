@@ -67,4 +67,4 @@ require 'bundler'
     cities.zip(location_arrays).to_s
   end
 
-  run Sinatra::Application.run!
+Sinatra::Application.run!

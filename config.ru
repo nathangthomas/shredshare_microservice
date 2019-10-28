@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'sinatra' # or Bundle.require
-require './app/locations'
-
+require "./locations"
+require 'sinatra'
 run Sinatra::Application
