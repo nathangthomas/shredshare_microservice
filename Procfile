@@ -1,1 +1,1 @@
-web: ruby locations.rb -p $PORT
+web: rackup cocations.ru -p $PORT

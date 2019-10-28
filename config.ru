@@ -1,3 +1,3 @@
 # require '/locations'
-run Sinatra::Application.run!
+run Sinatra::Application
 # Sinatra::Application.run!
