@@ -16,6 +16,8 @@ GEM
     dotenv (2.7.5)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
+    figaro (1.1.1)
+      thor (~> 0.14)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
@@ -45,6 +47,7 @@ GEM
       rack-protection (= 2.0.7)
       sinatra (= 2.0.7)
       tilt (~> 2.0)
+    thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.5)
@@ -56,6 +59,7 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   fast_jsonapi
+  figaro
   json
   pry
   shotgun

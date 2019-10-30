@@ -13,7 +13,6 @@ require 'bundler'
 
   get'/' do
     'This is a microservice application exposing custom APIs for the ShredShare ride share application that can be visitied at shred-share.herokuapp.com'
-
   end
 
   get '/rtd_locations/index' do
@@ -64,7 +63,9 @@ require 'bundler'
         location_hash.to_json
       end
     end
-    cities.zip(location_arrays).to_s
+    cities.zip(location_arrays).map {|city, rtd_jazz| [city, rtd_jazz] }.to_h.to_json
+    binding.pry
   end
+
 
 Sinatra::Application.run!
