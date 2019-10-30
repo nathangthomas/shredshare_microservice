@@ -20,8 +20,7 @@ require 'bundler'
   # 1. api_key needs to be ENV
 
   #Will add more cities from Douglas, Arapahoe, Adams, Broomfield and Boulder counties.
-  cities = ['Denver,CO', 'Lakewood,CO']
-     # 'Arvada,CO','Westminster,CO', 'Wheat Ridge,CO', 'Golden,CO', 'Edgewater,CO', 'Mountain View,CO', 'Bow Mar,CO', 'Littleton,CO', 'Superior,CO', 'Lakeside,CO']
+  cities = ['Denver,CO', 'Lakewood,CO','Arvada,CO','Westminster,CO', 'Wheat Ridge,CO', 'Golden,CO', 'Edgewater,CO', 'Mountain View,CO', 'Bow Mar,CO', 'Littleton,CO', 'Superior,CO', 'Lakeside,CO']
   #Geocode endpoint returns coordinates for a given city
   locations = cities.map do |city|
     geocode_endpoint = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCCdGKvSQHfIGMoD7aSJsBGweJV8hUhRhk&address=#{city}"
@@ -66,6 +65,5 @@ require 'bundler'
     end
     cities.zip(location_arrays).map {|city, rtd_jazz| [city, rtd_jazz] }.to_h.to_json
   end
-
 
 Sinatra::Application.run!
